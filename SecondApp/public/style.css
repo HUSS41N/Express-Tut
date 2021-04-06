@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(31, 204, 204);
+}
+header nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: aliceblue;
+}
+nav h1{
+    flex: 1;
+}
+nav ul{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+}

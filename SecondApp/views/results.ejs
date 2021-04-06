@@ -1,0 +1,12 @@
+<%- include('partials/header') %> 
+<%- include('partials/nav') %> 
+		<h1>Result found for : <%= result.name %></h1>
+		<h1>subscribers : <%= result.subscribers %></h1>
+		<p><%= result.description %></p>
+		<!-- logic <% %> -->
+		<% for(let post of result.posts){ %>
+		<p><%= post.title %> <b><%= post.author %> </b></p>
+		<% if(post.img) {%>
+		<img src="<%= post.img %> " alt="" />
+		<% } %> <% } %>
+<%- include('partials/footer') %> 
