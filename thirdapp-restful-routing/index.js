@@ -6,6 +6,22 @@ const methodOverride = require('method-override')
 
 app.set("views", (__dirname, "views"));
 app.set("view engine", "ejs");
+<<<<<<< HEAD
+=======
+
+// parsing the form data
+// we have to tell express to encode the data we are recinving from req.body to get the data otherwise we will get undefined
+app.use(express.urlencoded({ extended: true }));
+
+// if we want to parse json
+app.use(express.json());
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+// routes
+// app.get("/", (req, res) => {
+// 	res.render("index");
+// });
+>>>>>>> 813a7383f4fd14704d1afb791b2cfca70212e93b
 
 // parsing the form data
 // we have to tell express to encode the data we are recinving from req.body to get the data otherwise we will get undefined
@@ -34,6 +50,7 @@ app.use(methodOverride('_method'))
 
 // *! COMMMENTS REST APP
 let comments = [
+<<<<<<< HEAD
 	{ id: uuidv4(), username: "Hussain", comment: "Aba Kadar is Dope" },
 	{ id: uuidv4(), username: "Vivek", comment: "Aba Kadar apna LEGENND H" },
 	{ id: uuidv4(), username: "Kudri", comment: "Aba Kadar ki maa ki chut" },
@@ -47,6 +64,17 @@ app.get("/", (req, res) => {
 //  post/comments->make new comment
 // del/comments/id -> del a comment
 // patch/comments/id --> update a comment
+=======
+    {id:uuidv4(),username:'Hussain',comment:'Aba kadar is dope'},
+    {id:uuidv4(),username:'Vivek',comment:'Aba kadar is so cool and funny'},
+    {id:uuidv4(),username:'Kudri',comment:'Aba kadar'},
+    {id:uuidv4(),username:'Saquib',comment:'ye Aba kadar kon h?'},
+]
+// * redirect to /comments
+app.get('/',(req,res)=>{
+    res.redirect('/comments')
+})
+>>>>>>> 813a7383f4fd14704d1afb791b2cfca70212e93b
 
 app.get("/comments", (req, res) => {
 	res.render("index", { comments });
@@ -65,6 +93,15 @@ app.get('/comments/:id',(req,res)=>{
     const comment = comments.find((comment)=> comment.id == id)
     res.render('show',{comment})
 })
+<<<<<<< HEAD
+=======
+// unique comment
+app.get('/comments/:id',(req,res)=>{
+    const { id } = req.params
+    const comment = comments.find((comment)=> comment.id == id)
+    res.render('show',{comment})
+} )
+>>>>>>> 813a7383f4fd14704d1afb791b2cfca70212e93b
 // patch request
 // patch form
 app.get('/comments/:id/edit',(req,res)=>{
@@ -87,7 +124,13 @@ app.delete('/comments/:id',(req,res)=>{
 	comments = comments.filter(comment=>comment.id !== id)
 	res.redirect('/comments')
 })
+<<<<<<< HEAD
 // server setup
 app.listen(3000, () => {
 	console.log("Server Listing at port 3000");
 });
+=======
+app.listen(3000,()=>{
+    console.log('Server started at port 3000');
+})
+>>>>>>> 813a7383f4fd14704d1afb791b2cfca70212e93b
