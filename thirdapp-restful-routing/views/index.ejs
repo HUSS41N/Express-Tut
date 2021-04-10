@@ -4,19 +4,43 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Aba Kadar fan club</title>
+		<title>Aba Kadar</title>
 	</head>
 	<body>
-		<h1>Aba Kadar fan club</h1>
-        <h2>New Comment</h2>
-        <form action="/comments" method="POST">
-            <input type="text" name="username" placeholder="username">
-            <br>
-            <textarea name="comment" id="" cols="30" rows="5" placeholder="comment"></textarea>
-            <button type="submit">submit</button>
-        </form>
-		<% for(let comment of comments){ %>
-		<p><%= comment.comment %> -- <b><%= comment.username %> </b></p>
-		<% } %>
+		<h1>GET & POST Request in Express</h1>
+		<!-- get request is used to search for things or serve the tempates and not to post things -->
+		<!-- <form action="/" method="GET">
+			<h2>GET</h2>
+			<input type="text" name="name" placeholder="name" />
+			<input type="number" name="age" placeholder="age" />
+			<button type="submit">Submit</button>
+		</form> -->
+		<!-- post request tries to submit all this data its getting to the action route it is more used for creating,updating or delteing purposes example would be authentication  -->
+		<!-- <form action="/" method="post">
+			<h2>POST</h2>
+			<input type="text" name="name" placeholder="name" />
+			<input type="number" name="age" placeholder="age" />
+			<button type="submit">Submit</button>
+		</form> -->
+		<form action="/comments" method="post">
+			<h2>POST COMMENT</h2>
+			<input type="text" name="username" placeholder="username" />
+			<br />
+			<textarea
+				name="comment"
+				cols="30"
+				rows="10"
+				placeholder="comment"
+			></textarea>
+			<button type="submit">Submit</button>
+		</form>
+		<ul>
+			<% for(comment of comments){ %>
+
+			<li><%= comment.comment %> -- <b><%= comment.username %></b>
+            <a href="/comments/<%= comment.id %> ">details</a></li>
+            <a href="/comments/<%= comment.id %>/edit ">edit</a></li>
+			<% } %>
+		</ul>
 	</body>
 </html>
