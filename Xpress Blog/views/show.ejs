@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/nav.ejs') %>
+    <div class="container">
+        <div class="col s12 m9">
+          <div class="card">
+            <div class="card-image">
+              <img src="<%= post.image %> ">
+              <span class="card-title"><%= post.title %> </span>
+            </div>
+            <div class="card-content">
+              <p><%= post.description %> </p>
+            </div>
+            <div class="card-action">
+              <a href="/blogs/<%= post.id %>/edit ">Edit</a>
+              <form action="/blogs/<%= post.id %>?_method=DELETE " method="POST" style="display: inline;">
+                <button class="btn red">DELETE</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+<%- include('partials/footer.ejs') %>

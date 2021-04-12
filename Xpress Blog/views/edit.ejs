@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/nav.ejs") %> 
+<div class="row container">
+    <form class="col s12" action="/blogs/<%= post.id %>?_method=PATCH" method="POST">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="input_text" name="title" type="text" data-length="20" value="<%= post.title %> ">
+          <label for="input_text">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="input_text" name="image" type="text" value="<%= post.image %> ">
+          <label for="input_text">Image link</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea2" name="description" class="materialize-textarea" data-length="120"><%= post.description %> </textarea>
+          <label for="textarea2">Description</label>
+        </div>
+      </div>
+      <button type="submit" class="btn grey">Submit</button>
+    </form>
+  </div>
+<%- include("partials/footer.ejs") %> 

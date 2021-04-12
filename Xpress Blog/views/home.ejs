@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/nav.ejs') %> <%
+for(let post of posts){ %>
+    <div class="container">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img style="object-fit: cover; object-position: center" src="<%= post.image %> " height="350px">
+              <span class="card-title"><%= post.title %> </span>
+            </div>
+            <div class="card-content">
+              <p><%= post.description %> </p>
+            </div>
+            <div class="card-action">
+              <a href="/blogs/<%= post.id %> ">view</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<% } %> 
+<%- include('partials/footer.ejs') %>
